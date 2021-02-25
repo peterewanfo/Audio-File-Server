@@ -20,5 +20,5 @@ After Cloning this project and installing all dependencies, do the following:
 # DOCUMENTATION UI
 ### Temporary online script running on http://68.183.118.218/doc however after clonning and installing, you can access it by http://127.0.0.1:5000/doc
 
-
-![](https://github.com/peterewanfo/mini-unsplash-clone/blob/master/home_screenshot.jpg?raw=true)
+### API DOCUMENTATION UI
+![](https://github.com/peterewanfo/Audio-File-Server/blob/main/api_documentationa.jpg?raw=true)
