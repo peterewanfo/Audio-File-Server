@@ -6,6 +6,7 @@ PROJECT DESCRIPTION
 *Please Note
 
 *As requested, this Web API was written with Python(Flask)
+##### At default, project will run on http://127.0.0.1:5000, to access api documentaion, visit the route http://127.0.0.1:5000/doc
 
 # INSTALLATION GUIDE
 After Cloning this project and installing all dependencies, Before starting the script, do the following:
