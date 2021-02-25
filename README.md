@@ -10,9 +10,10 @@ PROJECT DESCRIPTION
 ##### For quick preview, temporarily you can access the documentaion by this ip: http://68.183.118.218/doc
 
 # INSTALLATION GUIDE
-After Cloning this project and installing all dependencies, Before starting the script, do the following:
+After Cloning this project and installing all dependencies, do the following:
 
-### Create Database table by running the command: python manage_db.py on project root directory
+##### 1. Create Database table by running the command: 
+#####     "python manage_db.py" on project root directory
 
 
 ![](https://i.imgur.com/RSal5ZG.png)
