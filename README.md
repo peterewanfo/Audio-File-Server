@@ -22,3 +22,16 @@ After Cloning this project and installing all dependencies, do the following:
 
 ### API DOCUMENTATION UI
 ![](https://github.com/peterewanfo/Audio-File-Server/blob/main/api_documentationa.jpg?raw=true)
+
+### CREATE API DOCUMENTAION UI
+![](https://github.com/peterewanfo/Audio-File-Server/blob/main/createe_api_documentation.jpg?raw=true)
+
+### DELETE API DOCUMENTAION UI
+![](https://github.com/peterewanfo/Audio-File-Server/blob/main/deletee_api_documentation.jpg?raw=true)
+
+### GET API DOCUMENTAION UI
+![](https://github.com/peterewanfo/Audio-File-Server/blob/main/geet_api_documentaion.jpg?raw=true)
+
+### PUT API DOCUMENTAION UI
+![](https://github.com/peterewanfo/Audio-File-Server/blob/main/put_api_documentation.jpg?raw=true)
+
