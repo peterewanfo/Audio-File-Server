@@ -10,7 +10,7 @@ PROJECT DESCRIPTION
 # INSTALLATION GUIDE
 After Cloning this project and installing all dependencies, Before starting the script, do the following:
 
-## Create Database table by running the command: python manage_db.py on project root directory
+### Create Database table by running the command: python manage_db.py on project root directory
 
 
 ![](https://i.imgur.com/RSal5ZG.png)
