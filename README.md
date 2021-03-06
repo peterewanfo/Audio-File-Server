@@ -17,6 +17,9 @@ After Cloning this project and installing all dependencies, do the following:
 ### 2. Launch script by running the command below:
 #####    "python run.py" on project root directory
 
+### Note: YOU CAN LAUNCH UNIT TEST ON THE PROJECT ROOT FOLDER WITH THIS COMMAND "python -m unittest -v"
+### Alternatively, you can run unittest on the root folder with the command "python test.py"
+
 # DOCUMENTATION UI
 ### Temporary online script running on http://68.183.118.218/doc however after clonning and installing, you can access it by http://127.0.0.1:5000/doc
 
