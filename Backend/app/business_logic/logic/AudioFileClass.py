@@ -2,9 +2,9 @@ import traceback
 import time
 import datetime
 
-from app.business_logic.utils.DBFunctionsClass import DBFunctionsClass
+from app.business_logic.logic.utils.DBFunctionsClass import DBFunctionsClass
 from app.business_logic.logic.HelpersClass import HelpersClass
-from app.business_logic.utils.enum_audiofile import AudioFileEnum
+from app.business_logic.logic.utils.enum_audiofile import AudioFileEnum
 
 class AudioFileClass():
 
@@ -35,19 +35,27 @@ class AudioFileClass():
 
                 elif AudioFileEnum[str(file_type).lower()].value == 2:
 
-                    #{GENERATE QUERY STRING} INSERT TO PODCAST TABLE
-                    query = f"""INSERT INTO Podcast(
-                    name, duration, uploaded_time, host, participants)
-                    VALUES(
-                    '{file_metadata["name"]}', '{file_metadata["duration"]}', '{uploaded_time}', '{file_metadata["host"]}', '{file_metadata["participants"]}')"""
+                    #VALIDATE PARTICIPANTS
+                    from app.business_logic.logic.utils.Validators import ValidatorsClass
+
+                    if ValidatorsClass.validate_participants(participants = file_metadata['participants']):
+
+                        #{GENERATE QUERY STRING} INSERT TO PODCAST TABLE
+                        query = f"""INSERT INTO Podcast(
+                        name, duration, uploaded_time, host, participants)
+                        VALUES(
+                        "{file_metadata['name']}", "{file_metadata['duration']}", '{uploaded_time}', "{file_metadata['host']}", "{ str(file_metadata['participants']) }")"""
+
+                    else:
+                        return False
 
                 elif AudioFileEnum[str(file_type).lower()].value == 3:
 
                     #{GENERATE QUERY STRING} INSERT TO AUDIOBOOK TABLE
                     query = f"""INSERT INTO Audiobook(
-                    title, author, naration, duration, uploaded_time)
+                    title, author, narator, duration, uploaded_time)
                     VALUES(
-                    '{file_metadata["title"]}', '{file_metadata["author"]}', '{file_metadata["naration"]}', '{file_metadata["duration"]}', '{uploaded_time}')"""
+                    '{file_metadata["title"]}', '{file_metadata["author"]}', '{file_metadata["narator"]}', '{file_metadata["duration"]}', '{uploaded_time}')"""
 
                 DBFunctionsClass.execCommitDb(query)
 
@@ -127,13 +135,21 @@ class AudioFileClass():
 
                 elif AudioFileEnum[str(file_type).lower()].value == 2:
 
-                    #{GENERATE QUERY STRING} UPDATE PODCAST TABLE
-                    query = f"""UPDATE Podcast SET name = '{file_metadata["name"]}', duration = '{file_metadata["duration"]}', host = '{file_metadata["host"]}', participants = '{file_metadata["participants"]}' WHERE id = '{id}' """
+                    #VALIDATE PARTICIPANTS
+                    from app.business_logic.logic.utils.Validators import ValidatorsClass
+
+                    if ValidatorsClass.validate_participants(participants = file_metadata['participants']):
+
+                        #{GENERATE QUERY STRING} UPDATE PODCAST TABLE
+                        query = f"""UPDATE Podcast SET name = "{file_metadata['name']}", duration = "{file_metadata['duration']}", host = "{file_metadata['host']}", participants = "{str(file_metadata['participants'])}" WHERE id = "{id}" """
+
+                    else:
+                        return False
 
                 elif AudioFileEnum[str(file_type).lower()].value == 3:
 
                     #{GENERATE QUERY STRING} INSERT TO AUDIOBOOK TABLE
-                    query = f"""UPDATE Audiobook SET title = '{file_metadata["title"]}', author = '{file_metadata["author"]}', naration = '{file_metadata["naration"]}', duration = '{file_metadata["duration"]}'"""
+                    query = f"""UPDATE Audiobook SET title = '{file_metadata["title"]}', author = '{file_metadata["author"]}', narator = '{file_metadata["narator"]}', duration = '{file_metadata["duration"]}'"""
 
                 DBFunctionsClass.execCommitDb(query)
 

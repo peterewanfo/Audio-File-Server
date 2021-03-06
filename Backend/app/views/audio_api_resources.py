@@ -1,4 +1,4 @@
-from app.business_logic.utils.Decorators import manage_db_connection
+from app.business_logic.logic.utils.Decorators import manage_db_connection
 
 from flask import request, jsonify, make_response, json, url_for
 import jwt, traceback, time, datetime
@@ -23,15 +23,19 @@ class CreateNewFile(Resource):
 
             data = AudioFileClass.createAudioFile(file_type = file_type, file_metadata = file_metadata)
 
-            return jsonify({'message': data})
+            if data:
+                return jsonify({'message': data})
+            else:
+                return make_response(jsonify({"message": 'Internal Server Error' } ), 500)
 
         except Exception as e:
 
             return make_response(jsonify({"message": 'Internal Server Error' } ), 500)
 
 
+@audio_file_api_call.route('/<file_type>', defaults = {'file_id':None})
 @audio_file_api_call.route('/<file_type>/<file_id>')
-class DeleteFile(Resource):
+class AudioFileReq(Resource):
     @staticmethod
     @manage_db_connection
     def delete(file_type, file_id):
@@ -57,7 +61,10 @@ class DeleteFile(Resource):
 
             data = AudioFileClass.updateAudioFile(file_type = file_type, file_metadata = file_metadata, id = file_id)
 
-            return jsonify({'message': data})
+            if data:
+                return jsonify({'message': data})
+            else:
+                return make_response(jsonify({"message": 'Internal Server Error' } ), 500)
 
         except Exception as e:
 

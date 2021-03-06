@@ -8,7 +8,7 @@ class DBModels():
     db = None
     cursor = None
     database_name = "AudioFileServerDB"
-    database_password = "AudioFileServerDBPassword"
+    database_password = "password"
 
     #NOTE -> PASSWORD AND DATA SHOULD BE SAVED ON ENVIRONMENT VARIABLES ON PRODUCTION
 
@@ -65,7 +65,7 @@ class DBModels():
                     "duration INT(11), "
                     "uploaded_time INT(11), "
                     "host VARCHAR(100), "
-                    "participants MEDIUMTEXT "
+                    "participants LONGTEXT "
                     ") ENGINE = InnoDB;")
 
         #TABLE TO HOLD AUDIOBOOK RECORDS
@@ -73,7 +73,7 @@ class DBModels():
                     "id INT(11) PRIMARY KEY AUTO_INCREMENT, "
                     "title VARCHAR(100), "
                     "author VARCHAR(100), "
-                    "naration VARCHAR(100), "
+                    "narator VARCHAR(100), "
                     "duration INT(11), "
                     "uploaded_time INT(11) "
                     ") ENGINE = InnoDB;")

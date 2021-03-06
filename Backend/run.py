@@ -1,7 +1,7 @@
 from app import create_app
 from flask import request
 
-app = create_app("default")
+app = create_app("DevelopmentConfig")
 
 if __name__ == '__main__':
 

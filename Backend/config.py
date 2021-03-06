@@ -7,15 +7,13 @@ class config():
 	
 	SECRET_KEY = "asdfkjlashdlkfjhlkjasd"
 	CORS_HEADERS = 'Content-Type'
+	TESTING = True
 	
-class ProductionConfig(config):
-	debug = False
-
 class DevelopmentConfig(config):
 	debug = True
+	testing = True
 	
 configuration = {
 	'default':config,
-	'ProductionConfig':ProductionConfig,
 	'DevelopmentConfig':DevelopmentConfig
 }
